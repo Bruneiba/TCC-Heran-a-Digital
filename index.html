@@ -1,1855 +1,1451 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+:root {
+    --blue: #b9d9ee;
+    --deep: #244a67;
+    --dark: #17344b;
+    --light: #f7fbfe;
+    --text: #334957;
+    --muted: #6d7f8b;
+    --line: #dceaf3;
+    --white: #ffffff;
+    --shadow: 0 15px 45px rgba(36, 74, 103, 0.10);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<head>
 
-<meta charset="UTF-8">
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    height: 78px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--deep);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.logo span {
+    font-size: 23px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+nav a {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+    color: var(--deep);
+}
+
+
+.nav-button {
+    border: none;
+    background: var(--deep);
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+
+.menu {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 27px;
+    color: var(--deep);
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 650px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            #e5f3fb 0%,
+            transparent 34%
+        ),
+        var(--light);
+}
+
+
+.hero-text {
+    max-width: 650px;
+}
+
+
+.tag,
+.eyebrow {
+    display: inline-block;
+    color: var(--deep);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+.hero h1 {
+    margin: 18px 0;
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.08;
+}
+
+
+.hero h1 em {
+    color: var(--deep);
+    font-style: normal;
+}
+
+
+.hero p {
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+
+.primary,
+.secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 13px 21px;
+    font-weight: 600;
+}
+
+
+.primary {
+    border: none;
+    background: var(--deep);
+    color: white;
+}
+
+
+.secondary {
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--deep);
+}
+
+
+.trust {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
 
-<title>Herança Digital | Inventário</title>
+.trust span {
+    color: #4d8a67;
+    font-weight: bold;
+}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-rel="stylesheet">
+/* ================= HERO ART ================= */
 
-<link rel="stylesheet" href="style.css">
+.hero-art {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    flex-shrink: 0;
+}
 
-</head>
 
+.glow {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    background: #dceef9;
+    border-radius: 50%;
+    top: 30px;
+    left: 35px;
+}
 
-<body>
 
+.circle {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    background: white;
+    border: 12px solid var(--blue);
+    border-radius: 50%;
+    top: 80px;
+    left: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
 
-<header class="header">
 
-<a class="logo" href="#inicio">
+.dove {
+    font-size: 80px;
+}
 
-<span>🕊️</span>
 
-Herança Digital
+.floating-card {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 13px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    box-shadow: var(--shadow);
+    font-size: 22px;
+}
 
-</a>
 
+.floating-card strong,
+.floating-card small {
+    display: block;
+}
 
-<nav>
 
-<a href="#sobre">Sobre</a>
+.floating-card strong {
+    color: var(--dark);
+    font-size: 13px;
+}
 
-<a href="#leis">Herança e leis</a>
 
-<a href="#inventario">Inventário</a>
+.floating-card small {
+    color: var(--muted);
+    font-size: 10px;
+}
 
-<a href="#orientacao">Orientação</a>
 
-<button class="nav-button" onclick="openChat()">
+.card-one {
+    top: 30px;
+    right: -10px;
+}
 
-Falar com a IA
 
-</button>
+.card-two {
+    bottom: 45px;
+    left: -20px;
+}
 
-</nav>
 
+/* ================= SECTIONS ================= */
 
-<button class="menu" onclick="toggleMenu()">
+.section {
+    padding: 100px 8%;
+}
 
-☰
 
-</button>
+.section-heading {
+    max-width: 780px;
+    margin-bottom: 55px;
+}
 
-</header>
 
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    margin: 12px 0 20px;
+}
 
 
-<main>
+.section-heading p {
+    color: var(--muted);
+    margin-bottom: 14px;
+}
 
 
+.section-heading.small {
+    margin-bottom: 30px;
+}
 
-<!-- HERO -->
 
-<section class="hero" id="inicio">
+.section-heading.small h2 {
+    font-size: 34px;
+}
 
 
-<div class="hero-text">
+.section-heading.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-<span class="tag">
 
-INFORMAÇÃO • ORGANIZAÇÃO • ORIENTAÇÃO
+/* ================= SOBRE ================= */
 
-</span>
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
 
-<h1>
+.features article {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px;
+    background: white;
+    transition: 0.25s;
+}
 
-Cuide hoje do seu
 
-<br>
+.features article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
 
-<em>legado digital.</em>
 
-</h1>
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
 
 
-<p>
+.features h3 {
+    color: var(--dark);
+    margin-bottom: 10px;
+}
 
-Um espaço para entender, organizar e planejar
-o destino das suas contas, arquivos e informações digitais.
 
-</p>
+.features p {
+    color: var(--muted);
+    font-size: 14px;
+}
 
 
-<div class="hero-actions">
+/* ================= LEIS ================= */
 
-<a class="primary" href="#inventario">
+.legal-section {
+    padding: 100px 8%;
+    background: #f8fbfd;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
 
-Começar inventário →
 
-</a>
+.legal-intro {
+    max-width: 850px;
+    margin-bottom: 45px;
+}
 
 
-<a class="secondary" href="#sobre">
+.legal-intro h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.15;
+    margin: 12px 0 20px;
+}
 
-Entenda o projeto
 
-</a>
+.legal-intro p {
+    color: var(--muted);
+    margin-bottom: 14px;
+}
 
-</div>
 
+.legal-highlight {
+    max-width: 1000px;
+    margin-bottom: 70px;
+    padding: 25px;
+    display: flex;
+    gap: 20px;
+    background: white;
+    border-left: 5px solid var(--deep);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(36, 74, 103, 0.06);
+}
 
-<div class="trust">
 
-<span>✓</span>
+.highlight-icon {
+    font-size: 28px;
+}
 
-Não armazenamos seus documentos pessoais
 
-</div>
+.legal-highlight h3 {
+    color: var(--dark);
+    margin-bottom: 6px;
+}
 
-</div>
 
+.legal-highlight p {
+    color: var(--muted);
+}
 
 
-<div class="hero-art">
+/* ================= CARDS DAS LEIS ================= */
 
-<div class="glow"></div>
+.legislation-box {
+    margin-bottom: 80px;
+}
 
 
-<div class="circle">
+.law-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
 
-<div class="dove">
 
-🕊
+.law-card {
+    padding: 27px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    transition: 0.25s;
+}
 
-</div>
 
-</div>
+.law-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
 
 
-<div class="floating-card card-one">
+.law-number {
+    color: var(--deep);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-🔐
 
-<div>
+.law-card h3 {
+    color: var(--dark);
+    font-size: 21px;
+    margin: 8px 0 10px;
+}
 
-<strong>Privacidade</strong>
 
-<small>
+.law-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
 
-Seus dados ficam com você.
 
-</small>
+.law-card a {
+    color: var(--deep);
+    font-weight: 700;
+    font-size: 13px;
+}
 
-</div>
 
-</div>
+/* ================= TEXTO LEGAL ================= */
 
+.legal-content {
+    max-width: 950px;
+    margin: 0 auto 80px;
+}
 
-<div class="floating-card card-two">
 
-📋
+.legal-text {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 30px;
+}
 
-<div>
 
-<strong>Organização</strong>
+.legal-text p {
+    color: var(--text);
+    margin-bottom: 15px;
+}
 
-<small>
 
-Tenha tudo em um só lugar.
+.legal-note {
+    margin-top: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #eef7fc;
+    color: var(--text);
+}
 
-</small>
 
-</div>
+.legal-note strong {
+    color: var(--deep);
+}
 
-</div>
 
-</div>
+/* ================= PERGUNTAS ================= */
 
-</section>
+.faq-section {
+    max-width: 1050px;
+    margin: 0 auto;
+}
 
 
+.question-list {
+    border-top: 1px solid var(--line);
+    margin-bottom: 60px;
+}
 
-<!-- SOBRE -->
 
-<section class="section" id="sobre">
+.question-list a {
+    min-height: 62px;
+    padding: 15px 5px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--deep);
+    font-weight: 600;
+    transition: 0.2s;
+}
 
 
-<div class="section-heading">
+.question-list a:hover {
+    padding-left: 10px;
+}
 
-<span class="eyebrow">
 
-SOBRE O PROJETO
+.question-list b {
+    font-size: 20px;
+}
 
-</span>
 
+.faq-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 
-<h2>
 
-Por que pensar na sua
+.faq-answer {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 32px;
+    scroll-margin-top: 100px;
+}
 
-<br>
 
-herança digital?
+.faq-answer:target {
+    border-color: var(--blue);
+    box-shadow: 0 10px 35px rgba(36, 74, 103, 0.09);
+}
 
-</h2>
 
+.answer-number {
+    color: var(--deep);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
 
-<p>
 
-Hoje, grande parte da nossa vida existe no ambiente digital.
-Planejar esse legado pode facilitar decisões futuras e evitar
-a perda de informações importantes.
+.faq-answer h3 {
+    color: var(--dark);
+    font-size: 24px;
+    margin: 5px 0 18px;
+}
 
-</p>
 
-</div>
+.faq-answer p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 14px;
+}
 
 
+.law-reference {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: var(--light);
+    color: var(--text);
+    font-size: 13px;
+}
 
-<div class="features">
 
+.law-reference strong {
+    color: var(--deep);
+}
 
-<article>
 
-<div class="icon">
+.source-note {
+    max-width: 1050px;
+    margin: 70px auto 0;
+    padding: 25px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
 
-💻
 
-</div>
+.source-note strong {
+    color: var(--dark);
+}
 
 
-<h3>
+.source-note p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
 
-Vida digital
 
-</h3>
+/* ================= INVENTÁRIO ================= */
 
+.inventory {
+    background: var(--light);
+    display: grid;
+    grid-template-columns: 0.9fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
 
-<p>
 
-Contas, redes sociais, fotos, arquivos, assinaturas
-e outros bens digitais fazem parte do nosso cotidiano.
+.inventory-copy h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: 45px;
+    line-height: 1.15;
+    margin: 12px 0 20px;
+}
 
-</p>
 
-</article>
+.inventory-copy p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
 
 
+.checklist {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
 
-<article>
 
-<div class="icon">
+.progress {
+    height: 8px;
+    background: #edf3f7;
+    border-radius: 20px;
+    overflow: hidden;
+}
 
-🧭
 
-</div>
+.progress span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--deep);
+    transition: width 0.3s;
+}
 
 
-<h3>
+.progress-label {
+    text-align: right;
+    color: var(--muted);
+    font-size: 12px;
+    margin: 10px 0 20px;
+}
 
-Orientação
 
-</h3>
+.checklist label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 5px;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    cursor: pointer;
+}
 
 
-<p>
+.checklist label:last-child {
+    border-bottom: none;
+}
 
-Encontre informações para compreender o tema e saber
-quais caminhos podem ser considerados.
 
-</p>
+.checklist input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--deep);
+}
 
-</article>
 
+.checklist label span {
+    font-size: 20px;
+}
 
 
-<article>
+/* ================= ORIENTAÇÃO ================= */
 
-<div class="icon">
+.steps {
+    background: white;
+}
 
-🛡️
 
-</div>
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
 
-<h3>
+.step {
+    padding: 30px;
+    border-top: 3px solid var(--blue);
+    background: var(--light);
+}
 
-Privacidade
 
-</h3>
+.step b {
+    color: var(--deep);
+    font-size: 13px;
+}
 
 
-<p>
+.step h3 {
+    color: var(--dark);
+    margin: 10px 0;
+}
 
-O projeto foi pensado para orientar sem exigir que
-documentos pessoais sejam enviados ou armazenados.
 
-</p>
+.step p {
+    color: var(--muted);
+    font-size: 14px;
+}
 
-</article>
 
+/* ================= IA ================= */
 
-</div>
+.cta {
+    margin: 30px 8% 70px;
+    padding: 55px;
+    background: var(--deep);
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
 
-</section>
 
+.cta .eyebrow {
+    color: var(--blue);
+}
 
 
+.cta h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    line-height: 1.15;
+    margin: 10px 0;
+}
 
-<!-- NOVA SEÇÃO: HERANÇA E LEIS -->
 
-<section class="legal-section" id="leis">
+.cta p {
+    opacity: 0.85;
+}
 
 
-<div class="legal-intro">
+.white-button {
+    border: none;
+    background: white;
+    color: var(--deep);
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    white-space: nowrap;
+}
 
 
-<span class="eyebrow">
+/* =================================================
+   ADVOGADOS PARCEIROS
+================================================= */
 
-HERANÇA E INVENTÁRIO NO BRASIL
+.lawyers-section {
+    padding: 80px 8% 100px;
+    background: white;
+}
 
-</span>
 
+.lawyers-section .section-heading {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
 
-<h2>
 
-Entenda seus direitos e saiba
+.lawyers-grid {
+    max-width: 980px;
+    margin: 0 auto;
 
-<br>
+    display: grid;
 
-por onde começar.
+    grid-template-columns: repeat(2, 1fr);
 
-</h2>
+    gap: 20px;
+}
 
 
-<p>
+.lawyer-card {
+    min-height: 125px;
 
-Quando uma pessoa falece, seus bens, direitos e obrigações
-podem passar por um processo de sucessão. Entender o que
-é herança, quem pode ter direito a ela e como funciona o
-inventário é um dos primeiros passos para lidar com essa
-situação.
+    padding: 22px 25px;
 
-</p>
+    background: var(--deep);
 
+    border-radius: 14px;
 
-<p>
+    display: flex;
 
-No Brasil, as regras sobre sucessão estão principalmente
-no <strong>Código Civil</strong>, enquanto o procedimento
-judicial do inventário é disciplinado pelo
-<strong>Código de Processo Civil</strong>. Também existem
-normas do Conselho Nacional de Justiça que regulamentam
-determinadas situações de inventário realizado em cartório.
+    align-items: center;
 
-</p>
+    gap: 20px;
 
+    box-shadow: 0 8px 25px rgba(36, 74, 103, 0.10);
 
-<div class="legal-highlight">
+    transition: 0.25s;
+}
 
 
-<strong>
+.lawyer-card:hover {
+    transform: translateY(-3px);
 
-📌 Em termos simples
+    box-shadow: 0 14px 35px rgba(36, 74, 103, 0.18);
+}
 
-</strong>
 
+.lawyer-photo {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
 
-<p>
+    border-radius: 50%;
 
-A herança é o conjunto de bens, direitos e obrigações
-transmissíveis deixados pela pessoa falecida. O inventário
-é o procedimento utilizado para identificar esse patrimônio,
-verificar quem são os sucessores e realizar a partilha,
-quando cabível.
+    background: #8fa0ab;
 
-</p>
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-</div>
+    overflow: hidden;
+}
 
 
-<div class="legal-note">
+.lawyer-photo svg {
+    width: 52px;
+    height: 52px;
+}
 
-⚠️ As regras podem mudar conforme a situação familiar,
-a existência de testamento, o regime de bens, a existência
-de menores ou incapazes, dívidas, localização dos bens e
-outras circunstâncias. As informações desta página são
-educativas e não substituem orientação jurídica individual.
 
-</div>
+.lawyer-info {
+    min-width: 0;
+}
 
-</div>
 
+.lawyer-info h3 {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
 
 
-<!-- POR ONDE COMEÇAR -->
+.lawyer-info p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 2px 0;
+    word-break: break-word;
+}
 
-<div class="legal-start">
 
+/* ================= FOOTER ================= */
 
-<span class="eyebrow">
+footer {
+    padding: 35px 8%;
 
-POR ONDE COMEÇAR?
+    border-top: 1px solid var(--line);
 
-</span>
+    display: flex;
 
+    justify-content: space-between;
 
-<h3>
+    align-items: center;
 
-Escolha uma dúvida
+    gap: 30px;
 
-</h3>
+    background: white;
+}
 
 
-<p>
+footer p {
+    color: var(--muted);
+    font-size: 12px;
+}
 
-Clique na pergunta que mais se aproxima da sua situação.
-Você será direcionado para a explicação correspondente.
 
-</p>
+footer p a {
+    color: var(--deep);
+    font-weight: 600;
+}
 
 
-<div class="question-list">
+footer p a:hover {
+    text-decoration: underline;
+}
 
 
-<a href="#faq-heranca">
+/* ================= CHAT ================= */
 
-<span>O que é herança?</span>
+.chat-overlay {
+    position: fixed;
 
-<strong>→</strong>
+    inset: 0;
 
-</a>
+    background: rgba(13, 34, 48, 0.42);
 
+    display: none;
 
-<a href="#faq-inventario">
+    align-items: flex-end;
 
-<span>O que é inventário?</span>
+    justify-content: flex-end;
 
-<strong>→</strong>
+    padding: 25px;
 
-</a>
+    z-index: 500;
+}
 
 
-<a href="#faq-herdeiros">
+.chat-overlay.open {
+    display: flex;
+}
 
-<span>Quem pode ter direito à herança?</span>
 
-<strong>→</strong>
+.chat {
+    width: min(420px, 100%);
 
-</a>
+    height: min(650px, 90vh);
 
+    background: white;
 
-<a href="#faq-necessarios">
+    border-radius: 16px;
 
-<span>Quem são os herdeiros necessários?</span>
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 
-<strong>→</strong>
+    display: flex;
 
-</a>
+    flex-direction: column;
 
+    overflow: hidden;
+}
 
-<a href="#faq-divisao">
 
-<span>Como a herança é dividida?</span>
+.chat-head {
+    padding: 18px;
 
-<strong>→</strong>
+    background: var(--deep);
 
-</a>
+    color: white;
 
+    display: flex;
 
-<a href="#faq-dividas">
+    align-items: center;
 
-<span>As dívidas também passam para os herdeiros?</span>
+    justify-content: space-between;
+}
 
-<strong>→</strong>
 
-</a>
+.chat-head b,
+.chat-head small {
+    display: block;
+}
 
 
-<a href="#faq-prazo">
+.chat-head small {
+    opacity: 0.75;
+    font-size: 11px;
+}
 
-<span>Existe prazo para iniciar o inventário?</span>
 
-<strong>→</strong>
+.chat-head button {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 28px;
+}
 
-</a>
 
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px;
+}
 
-<a href="#faq-judicial">
 
-<span>Inventário precisa ser feito na Justiça?</span>
+.message {
+    max-width: 85%;
+    padding: 11px 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
 
-<strong>→</strong>
 
-</a>
+.message.bot {
+    background: #edf6fb;
+    color: var(--text);
+}
 
 
-<a href="#faq-testamento">
+.message.user {
+    margin-left: auto;
+    background: var(--deep);
+    color: white;
+}
 
-<span>O que acontece quando existe testamento?</span>
 
-<strong>→</strong>
+.suggestions {
+    padding: 10px 15px;
 
-</a>
+    display: flex;
 
+    gap: 7px;
 
-<a href="#faq-documentos">
+    overflow-x: auto;
 
-<span>Quais documentos costumam ser necessários?</span>
+    border-top: 1px solid var(--line);
+}
 
-<strong>→</strong>
 
-</a>
+.suggestions button {
+    border: 1px solid var(--line);
 
+    background: white;
 
-<a href="#faq-itcmd">
+    color: var(--deep);
 
-<span>O que é ITCMD?</span>
+    border-radius: 20px;
 
-<strong>→</strong>
+    padding: 7px 11px;
 
-</a>
+    white-space: nowrap;
 
+    font-size: 11px;
+}
 
-<a href="#faq-renuncia">
 
-<span>É possível renunciar à herança?</span>
+.chat form {
+    padding: 12px;
 
-<strong>→</strong>
+    border-top: 1px solid var(--line);
 
-</a>
+    display: flex;
 
+    gap: 8px;
+}
 
-<a href="#faq-digital">
 
-<span>E as contas e bens digitais?</span>
+.chat form input {
+    flex: 1;
 
-<strong>→</strong>
+    min-width: 0;
 
-</a>
+    border: 1px solid var(--line);
 
+    border-radius: 8px;
 
-</div>
+    padding: 11px;
 
-</div>
+    outline: none;
+}
 
 
+.chat form button {
+    width: 45px;
 
-<!-- RESPOSTAS -->
+    border: none;
 
-<div class="faq-section">
+    border-radius: 8px;
 
+    background: var(--deep);
 
-<span class="eyebrow">
+    color: white;
+}
 
-PERGUNTAS FREQUENTES
 
-</span>
+/* ================= RESPONSIVO ================= */
 
+@media (max-width: 1100px) {
 
-<h2>
+    nav {
+        gap: 13px;
+    }
 
-Informação para entender
+    nav a {
+        font-size: 13px;
+    }
 
-<br>
+}
 
-cada etapa.
 
-</h2>
+@media (max-width: 900px) {
 
+    .header {
+        padding: 0 5%;
+    }
 
 
-<!-- 1 -->
+    nav {
+        display: none;
 
-<article class="faq-answer" id="faq-heranca">
+        position: absolute;
 
-<h3>
+        top: 78px;
 
-O que é herança?
+        left: 0;
 
-</h3>
+        right: 0;
 
+        background: white;
 
-<p>
+        padding: 20px;
 
-A herança é o conjunto de bens, direitos e obrigações
-que podem ser transmitidos após o falecimento de uma pessoa.
+        flex-direction: column;
 
-Isso pode incluir, por exemplo, imóveis, veículos, dinheiro,
-investimentos, participações em empresas e determinados
-direitos patrimoniais.
+        align-items: stretch;
 
-</p>
+        border-bottom: 1px solid var(--line);
 
+        box-shadow: var(--shadow);
+    }
 
-<p>
 
-A sucessão é aberta com a morte e, segundo o Código Civil,
-a herança é transmitida desde logo aos herdeiros legítimos
-e testamentários.
+    nav.active {
+        display: flex;
+    }
 
-</p>
 
+    nav a {
+        padding: 8px 0;
+    }
 
-<div class="law-reference">
 
-<strong>Base legal:</strong>
+    .nav-button {
+        width: 100%;
+    }
 
-Lei nº 10.406/2002 — Código Civil,
-arts. 1.784, 1.786 e 1.791.
 
-</div>
+    .menu {
+        display: block;
+    }
 
-</article>
 
+    .hero {
+        padding: 70px 6%;
 
+        flex-direction: column;
 
-<!-- 2 -->
+        text-align: center;
+    }
 
-<article class="faq-answer" id="faq-inventario">
 
-<h3>
+    .hero p {
+        margin: auto;
+    }
 
-O que é inventário?
 
-</h3>
+    .hero-actions {
+        justify-content: center;
+    }
 
 
-<p>
+    .trust {
+        justify-content: center;
+    }
 
-O inventário é o procedimento utilizado para levantar e
-organizar o patrimônio deixado pela pessoa falecida.
 
-Durante esse procedimento são identificados os bens,
-direitos, dívidas, herdeiros e demais informações relevantes
-para que a sucessão possa ser regularizada e, quando
-for o caso, realizada a partilha.
+    .hero-art {
+        width: 320px;
+        height: 320px;
+    }
 
-</p>
 
+    .glow {
+        width: 270px;
+        height: 270px;
+    }
 
-<p>
 
-Ele pode ocorrer pela via judicial ou, em determinadas
-situações, por escritura pública em cartório.
+    .circle {
+        width: 190px;
+        height: 190px;
+        left: 65px;
+    }
 
-</p>
 
+    .dove {
+        font-size: 65px;
+    }
 
-<div class="law-reference">
 
-<strong>Base legal:</strong>
+    .card-one {
+        right: -5px;
+    }
 
-Lei nº 13.105/2015 — Código de Processo Civil,
-arts. 610 e seguintes.
 
-</div>
+    .card-two {
+        left: -5px;
+    }
 
-</article>
 
+    .features,
+    .law-grid,
+    .step-grid {
+        grid-template-columns: 1fr;
+    }
 
 
-<!-- 3 -->
+    .inventory {
+        grid-template-columns: 1fr;
+    }
 
-<article class="faq-answer" id="faq-herdeiros">
 
-<h3>
+    .lawyers-grid {
+        grid-template-columns: 1fr;
+    }
 
-Quem pode ter direito à herança?
 
-</h3>
+    .section,
+    .legal-section {
+        padding: 75px 6%;
+    }
 
 
-<p>
+    .cta {
+        margin: 20px 6% 60px;
 
-A resposta depende da composição familiar e das
-circunstâncias da sucessão.
+        padding: 40px 30px;
 
-Na sucessão legítima, o Código Civil estabelece uma ordem
-de chamamento que envolve descendentes, em determinadas
-situações em concorrência com o cônjuge sobrevivente;
-na falta de descendentes, ascendentes em concorrência com
-o cônjuge; depois o cônjuge e, em determinadas situações,
-os parentes colaterais.
+        flex-direction: column;
 
-</p>
+        align-items: flex-start;
+    }
 
 
-<p>
+    footer {
+        flex-direction: column;
 
-A existência de casamento, união estável, filhos, pais,
-testamento e o regime de bens pode alterar a forma como
-a sucessão será realizada.
+        text-align: center;
 
-</p>
+        gap: 15px;
+    }
 
+}
 
-<div class="law-reference">
 
-<strong>Base legal:</strong>
+@media (max-width: 500px) {
 
-Lei nº 10.406/2002 — Código Civil,
-arts. 1.829 a 1.839.
+    .hero h1 {
+        font-size: 39px;
+    }
 
-</div>
 
-</article>
+    .inventory-copy h2 {
+        font-size: 36px;
+    }
 
 
+    .legal-intro h2 {
+        font-size: 35px;
+    }
 
-<!-- 4 -->
 
-<article class="faq-answer" id="faq-necessarios">
+    .section-heading h2 {
+        font-size: 34px;
+    }
 
-<h3>
 
-Quem são os herdeiros necessários?
+    .faq-answer {
+        padding: 23px;
+    }
 
-</h3>
 
+    .legal-highlight {
+        flex-direction: column;
+    }
 
-<p>
 
-O Código Civil considera herdeiros necessários os
-<strong>descendentes, os ascendentes e o cônjuge</strong>.
+    .chat-overlay {
+        padding: 0;
+    }
 
-Isso significa que existe uma parcela da herança que,
-em regra, é protegida para esses herdeiros.
 
-</p>
+    .chat {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
 
 
-<p>
+    .lawyer-card {
+        padding: 20px;
+        gap: 15px;
+    }
 
-Essa parcela é chamada de <strong>legítima</strong> e
-corresponde à metade dos bens da herança.
 
-A outra metade pode ser objeto de disposição testamentária,
-respeitadas as regras legais.
+    .lawyer-photo {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+    }
 
-</p>
 
+    .lawyer-photo svg {
+        width: 46px;
+        height: 46px;
+    }
 
-<div class="law-reference">
 
-<strong>Base legal:</strong>
+    .lawyer-info h3 {
+        font-size: 15px;
+    }
 
-Lei nº 10.406/2002 — Código Civil,
-arts. 1.845 e 1.846.
 
-</div>
+    .lawyer-info p {
+        font-size: 12px;
+    }
 
-</article>
+}
+/* ================= POMBAS ================= */
 
+/* Pomba ao lado de "Herança Digital" */
+.logo-dove {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+}
 
 
-<!-- 5 -->
+/* Pomba grande dentro do círculo */
+.dove {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-<article class="faq-answer" id="faq-divisao">
+.dove-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+}
 
-<h3>
 
-Como a herança é dividida?
+/* Ajuste para não estourar no celular */
+@media (max-width: 768px) {
 
-</h3>
+    .logo-dove {
+        width: 28px;
+        height: 28px;
+    }
 
+    .dove {
+        width: 120px;
+        height: 120px;
+    }
 
-<p>
+    .dove-img {
+        width: 95px;
+        height: 95px;
+    }
 
-A divisão da herança depende de quem são os sucessores,
-da existência ou não de testamento, do regime de bens
-e de outras circunstâncias do caso.
-
-</p>
-
-
-<p>
-
-Quando existem herdeiros necessários, metade da herança
-é protegida pela legítima. A outra metade pode ser
-destinada por testamento dentro dos limites estabelecidos
-pela legislação.
-
-</p>
-
-
-<p>
-
-Por isso, não é possível determinar a porcentagem que
-cada pessoa receberá apenas observando o grau de parentesco.
-É necessário analisar a situação familiar e patrimonial
-completa.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Lei nº 10.406/2002 — Código Civil,
-arts. 1.789, 1.845 e 1.846.
-
-</div>
-
-</article>
-
-
-
-<!-- 6 -->
-
-<article class="faq-answer" id="faq-dividas">
-
-<h3>
-
-As dívidas também passam para os herdeiros?
-
-</h3>
-
-
-<p>
-
-As dívidas deixadas pela pessoa falecida fazem parte das
-obrigações relacionadas ao espólio.
-
-O herdeiro, porém, não responde por encargos superiores
-às forças da herança.
-
-Em outras palavras, a responsabilidade não significa que
-o herdeiro deverá automaticamente pagar uma dívida com
-seu próprio patrimônio além do limite da herança.
-
-</p>
-
-
-<p>
-
-A análise das dívidas é uma das razões pelas quais o
-levantamento do patrimônio e das obrigações é importante
-durante o inventário.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Lei nº 10.406/2002 — Código Civil,
-art. 1.792.
-
-</div>
-
-</article>
-
-
-
-<!-- 7 -->
-
-<article class="faq-answer" id="faq-prazo">
-
-<h3>
-
-Existe prazo para iniciar o inventário?
-
-</h3>
-
-
-<p>
-
-Sim.
-
-O Código de Processo Civil estabelece que o processo de
-inventário e partilha deve ser instaurado dentro de
-<strong>2 meses</strong>, contados da abertura da sucessão.
-
-O próprio artigo também prevê que o procedimento deve ser
-ultimado nos 12 meses seguintes, podendo o juiz prorrogar
-esses prazos.
-
-</p>
-
-
-<p>
-
-Além disso, podem existir consequências tributárias pelo
-atraso, de acordo com a legislação do estado ou do Distrito
-Federal responsável pelo ITCMD.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Lei nº 13.105/2015 — Código de Processo Civil,
-art. 611.
-
-</div>
-
-</article>
-
-
-
-<!-- 8 -->
-
-<article class="faq-answer" id="faq-judicial">
-
-<h3>
-
-Inventário precisa ser feito na Justiça?
-
-</h3>
-
-
-<p>
-
-Não necessariamente.
-
-O Código de Processo Civil prevê o inventário judicial
-em determinadas situações e permite o inventário e a
-partilha por escritura pública quando preenchidos os
-requisitos legais.
-
-</p>
-
-
-<p>
-
-Além das regras do CPC, as normas do CNJ atualmente
-regulamentam outras hipóteses de inventário extrajudicial.
-
-Por exemplo, a Resolução CNJ nº 571/2024 passou a admitir
-determinadas situações envolvendo interessado menor ou
-incapaz, desde que sejam cumpridos requisitos específicos,
-incluindo manifestação favorável do Ministério Público.
-
-</p>
-
-
-<p>
-
-Também existem regras específicas para situações em que
-há testamento.
-
-Por isso, a escolha da via depende das características
-do caso concreto.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Lei nº 13.105/2015 — CPC, art. 610.
-
-<br><br>
-
-Resolução CNJ nº 35/2007,
-com alterações posteriores, especialmente a Resolução
-CNJ nº 571/2024.
-
-</div>
-
-</article>
-
-
-
-<!-- 9 -->
-
-<article class="faq-answer" id="faq-testamento">
-
-<h3>
-
-O que acontece quando existe testamento?
-
-</h3>
-
-
-<p>
-
-O testamento permite que uma pessoa capaz disponha,
-para depois de sua morte, de todo ou parte de seus bens,
-respeitando os limites estabelecidos pela lei.
-
-</p>
-
-
-<p>
-
-Quando existem herdeiros necessários, a legítima deve ser
-preservada.
-
-Além disso, a existência de testamento pode influenciar
-o procedimento de inventário.
-
-</p>
-
-
-<p>
-
-Atualmente, a regulamentação do CNJ permite, em determinadas
-circunstâncias, que um inventário consensual seja realizado
-extrajudicialmente mesmo quando existe testamento, desde
-que sejam cumpridos requisitos específicos, incluindo
-autorização judicial para abertura e cumprimento do
-testamento.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Lei nº 10.406/2002 — Código Civil,
-arts. 1.789 e 1.857.
-
-<br><br>
-
-Resolução CNJ nº 35/2007,
-art. 12-B, incluído pela Resolução nº 571/2024.
-
-</div>
-
-</article>
-
-
-
-<!-- 10 -->
-
-<article class="faq-answer" id="faq-documentos">
-
-<h3>
-
-Quais documentos costumam ser necessários?
-
-</h3>
-
-
-<p>
-
-Os documentos variam de acordo com o caso, mas normalmente
-é necessário reunir documentos que permitam comprovar
-o falecimento, identificar os herdeiros e demonstrar
-a existência e titularidade dos bens e direitos.
-
-</p>
-
-
-<p>
-
-A certidão de óbito é um dos documentos fundamentais para
-o requerimento do inventário.
-
-Também podem ser necessários documentos pessoais dos
-interessados, documentos relativos ao casamento ou união
-estável, documentos de imóveis, veículos, contas,
-investimentos e outros bens.
-
-</p>
-
-
-<p>
-
-A documentação exata deve ser conferida de acordo com
-o tipo de inventário e com os bens existentes.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Lei nº 13.105/2015 — Código de Processo Civil,
-arts. 615 e 620.
-
-</div>
-
-</article>
-
-
-
-<!-- 11 -->
-
-<article class="faq-answer" id="faq-itcmd">
-
-<h3>
-
-O que é ITCMD?
-
-</h3>
-
-
-<p>
-
-ITCMD significa <strong>Imposto sobre Transmissão
-Causa Mortis e Doação</strong>.
-
-É um imposto relacionado, entre outras hipóteses,
-à transmissão de bens e direitos em razão do falecimento.
-
-</p>
-
-
-<p>
-
-O imposto é de competência dos estados e do Distrito
-Federal. Por isso, alíquotas, procedimentos, prazos,
-isenções e outras regras podem variar conforme a legislação
-do local competente.
-
-</p>
-
-
-<p>
-
-Uma atualização importante ocorreu em agosto de 2026.
-A Resolução CNJ nº 695/2026 alterou o art. 15 da Resolução
-CNJ nº 35/2007 para estabelecer que a escritura pública
-de inventário e partilha não depende da comprovação do
-prévio recolhimento do ITCMD.
-
-Isso não elimina a obrigação tributária: a própria resolução
-determina que as partes sejam orientadas sobre a obrigação
-e que o imposto seja apurado e recolhido conforme a
-legislação estadual ou distrital aplicável.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Resolução CNJ nº 35/2007,
-art. 15, com redação dada pela
-Resolução CNJ nº 695/2026.
-
-</div>
-
-</article>
-
-
-
-<!-- 12 -->
-
-<article class="faq-answer" id="faq-renuncia">
-
-<h3>
-
-É possível renunciar à herança?
-
-</h3>
-
-
-<p>
-
-Sim.
-
-A pessoa chamada à sucessão pode renunciar à herança,
-mas a renúncia precisa seguir a forma estabelecida pela lei.
-
-</p>
-
-
-<p>
-
-O Código Civil determina que a renúncia deve constar
-expressamente de instrumento público ou de termo judicial.
-
-Também estabelece que não é possível aceitar ou renunciar
-apenas uma parte da herança, sob condição ou a termo.
-
-</p>
-
-
-<p>
-
-A renúncia possui consequências jurídicas e pode alterar
-a distribuição da herança entre os demais sucessores.
-Por isso, essa decisão deve ser tomada com orientação
-profissional.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Base legal:</strong>
-
-Lei nº 10.406/2002 — Código Civil,
-arts. 1.806 e 1.808.
-
-</div>
-
-</article>
-
-
-
-<!-- 13 -->
-
-<article class="faq-answer" id="faq-digital">
-
-<h3>
-
-E as contas e bens digitais?
-
-</h3>
-
-
-<p>
-
-A vida digital também pode envolver informações,
-contas, arquivos, conteúdos, direitos e outros elementos
-que precisam ser analisados após o falecimento.
-
-Porém, isso não significa que toda conta digital ou todo
-conteúdo online seja automaticamente transferido aos
-herdeiros da mesma forma que um imóvel ou dinheiro.
-
-</p>
-
-
-<p>
-
-Cada serviço pode possuir regras próprias de utilização,
-contrato e tratamento das contas após a morte.
-
-Além disso, a sucessão de determinados ativos digitais
-ainda envolve questões jurídicas específicas e em evolução.
-
-</p>
-
-
-<p>
-
-Por isso, o objetivo deste projeto é ajudar o usuário a
-identificar o que existe no ambiente digital e compreender
-que determinados elementos podem precisar de análise
-jurídica específica.
-
-</p>
-
-
-<div class="law-reference">
-
-<strong>Referência geral:</strong>
-
-Código Civil — Lei nº 10.406/2002,
-regras gerais do Direito das Sucessões.
-
-<br><br>
-
-⚠️ A aplicação das regras aos ativos digitais depende
-da natureza do conteúdo, dos direitos envolvidos,
-dos contratos dos serviços e das circunstâncias do caso.
-
-</div>
-
-</article>
-
-
-
-</div>
-
-
-
-<!-- LEGISLAÇÃO -->
-
-<div class="legislation-box">
-
-
-<span class="eyebrow">
-
-LEGISLAÇÃO DE REFERÊNCIA
-
-</span>
-
-
-<h3>
-
-Principais normas utilizadas nesta página
-
-</h3>
-
-
-<div class="law-grid">
-
-
-<div>
-
-<strong>
-
-Lei nº 10.406/2002
-
-</strong>
-
-<span>
-
-Código Civil
-
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-
-Lei nº 13.105/2015
-
-</strong>
-
-<span>
-
-Código de Processo Civil
-
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-
-Lei nº 11.441/2007
-
-</strong>
-
-<span>
-
-Inventário e partilha por via administrativa
-
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-
-Resolução CNJ nº 35/2007
-
-</strong>
-
-<span>
-
-Atos notariais relacionados ao inventário e partilha
-
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-
-Resolução CNJ nº 571/2024
-
-</strong>
-
-<span>
-
-Atualizações sobre inventário extrajudicial
-
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-
-Resolução CNJ nº 695/2026
-
-</strong>
-
-<span>
-
-Atualização recente sobre ITCMD no inventário extrajudicial
-
-</span>
-
-</div>
-
-
-</div>
-
-
-<p class="source-note">
-
-As normas podem ser alteradas. Consulte sempre a legislação
-oficial e um profissional habilitado para situações concretas.
-
-</p>
-
-</div>
-
-
-</section>
-
-
-
-
-<!-- INVENTÁRIO -->
-
-<section class="inventory section" id="inventario">
-
-
-<div class="inventory-copy">
-
-
-<span class="eyebrow">
-
-INVENTÁRIO DIGITAL
-
-</span>
-
-
-<h2>
-
-Organize seu legado
-
-<br>
-
-em poucos passos.
-
-</h2>
-
-
-<p>
-
-Use a lista abaixo como um guia.
-Ela não substitui orientação jurídica, mas ajuda você
-a identificar o que possui no ambiente digital.
-
-</p>
-
-
-<button class="primary" onclick="startInventory()">
-
-Iniciar checklist
-
-</button>
-
-</div>
-
-
-
-<div class="checklist" id="checklist">
-
-
-<div class="progress">
-
-<span id="progressBar"></span>
-
-</div>
-
-
-<p class="progress-label">
-
-<b id="progressText">0%</b>
-
-concluído
-
-</p>
-
-
-
-<label>
-
-<input type="checkbox" onchange="updateProgress()">
-
-<span>📱</span>
-
-Contas de e-mail
-
-</label>
-
-
-
-<label>
-
-<input type="checkbox" onchange="updateProgress()">
-
-<span>📸</span>
-
-Redes sociais
-
-</label>
-
-
-
-<label>
-
-<input type="checkbox" onchange="updateProgress()">
-
-<span>☁️</span>
-
-Armazenamento em nuvem
-
-</label>
-
-
-
-<label>
-
-<input type="checkbox" onchange="updateProgress()">
-
-<span>💳</span>
-
-Assinaturas e serviços
-
-</label>
-
-
-
-<label>
-
-<input type="checkbox" onchange="updateProgress()">
-
-<span>🖼️</span>
-
-Fotos e arquivos importantes
-
-</label>
-
-
-
-<label>
-
-<input type="checkbox" onchange="updateProgress()">
-
-<span>🎮</span>
-
-Jogos e bens digitais
-
-</label>
-
-
-</div>
-
-</section>
-
-
-
-
-<!-- COMO FUNCIONA -->
-
-<section class="steps section" id="orientacao">
-
-
-<div class="section-heading center">
-
-
-<span class="eyebrow">
-
-COMO FUNCIONA
-
-</span>
-
-
-<h2>
-
-Um caminho simples para começar
-
-</h2>
-
-</div>
-
-
-
-<div class="step-grid">
-
-
-<div class="step">
-
-<b>01</b>
-
-<h3>
-
-Identifique
-
-</h3>
-
-
-<p>
-
-Liste as contas e os conteúdos digitais
-que fazem parte da sua vida.
-
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<b>02</b>
-
-<h3>
-
-Organize
-
-</h3>
-
-
-<p>
-
-Defina quais informações são relevantes
-e como elas podem ser administradas.
-
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<b>03</b>
-
-<h3>
-
-Oriente-se
-
-</h3>
-
-
-<p>
-
-Consulte fontes confiáveis e profissionais
-quando houver questões jurídicas.
-
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-
-<div>
-
-
-<span class="eyebrow">
-
-PRECISA DE AJUDA?
-
-</span>
-
-
-<h2>
-
-Converse com nosso
-
-<br>
-
-assistente virtual.
-
-</h2>
-
-
-<p>
-
-Faça perguntas sobre o funcionamento do projeto
-e receba orientações gerais.
-
-</p>
-
-
-</div>
-
-
-<button class="white-button" onclick="openChat()">
-
-Abrir assistente →
-
-</button>
-
-</section>
-
-
-
-</main>
-
-
-
-
-<footer>
-
-
-<div class="logo">
-
-<span>🕊️</span>
-
-Herança Digital
-
-</div>
-
-
-<p>
-
-Projeto acadêmico • Herança Digital e Inventário
-
-</p>
-
-</footer>
-
-
-
-
-<!-- CHAT -->
-
-<div class="chat-overlay" id="chatOverlay">
-
-
-<div class="chat">
-
-
-<div class="chat-head">
-
-
-<div>
-
-<b>
-
-🕊️ Assistente Digital
-
-</b>
-
-
-<small>
-
-Orientação geral
-
-</small>
-
-</div>
-
-
-<button onclick="closeChat()">
-
-×
-
-</button>
-
-</div>
-
-
-
-<div class="messages" id="messages">
-
-
-<div class="message bot">
-
-Olá! 👋 Sou o assistente do projeto.
-
-Posso explicar o que é herança digital,
-o inventário, a herança e como o site funciona.
-
-</div>
-
-</div>
-
-
-
-<div class="suggestions">
-
-
-<button onclick="ask('O que é herança?')">
-
-O que é herança?
-
-</button>
-
-
-<button onclick="ask('O que é inventário?')">
-
-O que é inventário?
-
-</button>
-
-
-<button onclick="ask('Quem são os herdeiros necessários?')">
-
-Herdeiros necessários
-
-</button>
-
-
-</div>
-
-
-
-<form onsubmit="sendMessage(event)">
-
-
-<input
-id="chatInput"
-placeholder="Digite sua pergunta..."
-autocomplete="off"
->
-
-
-<button>
-
-➤
-
-</button>
-
-
-</form>
-
-
-</div>
-
-</div>
-
-
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+}
