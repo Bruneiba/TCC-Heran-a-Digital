@@ -1,619 +1,215 @@
 function updateProgress() {
 
-const boxes = [
+    const boxes = [
+        ...document.querySelectorAll("#checklist input")
+    ];
 
-...document.querySelectorAll(
+    const done = boxes.filter(box => box.checked).length;
 
-'#checklist input'
+    const percent = boxes.length
+        ? Math.round((done / boxes.length) * 100)
+        : 0;
 
-)
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
 
-];
+    if (progressBar) {
+        progressBar.style.width = percent + "%";
+    }
 
-const done =
-
-boxes.filter(
-
-box => box.checked
-
-).length;
-
-const percent =
-
-Math.round(
-
-done / boxes.length * 100
-
-);
-
-document.getElementById(
-
-'progressBar'
-
-).style.width = percent + '%';
-
-document.getElementById(
-
-'progressText'
-
-).textContent = percent + '%';
-
+    if (progressText) {
+        progressText.textContent = percent + "%";
+    }
 }
-
 
 
 function startInventory() {
 
-document
+    const inventory = document.getElementById("inventario");
 
-.getElementById('inventario')
-
-.scrollIntoView({
-
-behavior: 'smooth'
-
-});
-
+    if (inventory) {
+        inventory.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
 }
-
 
 
 function openChat() {
 
-document
+    const chatOverlay = document.getElementById("chatOverlay");
 
-.getElementById('chatOverlay')
-
-.classList.add('open');
-
+    if (chatOverlay) {
+        chatOverlay.classList.add("open");
+    }
 }
-
 
 
 function closeChat(event) {
 
-if (
+    const chatOverlay = document.getElementById("chatOverlay");
 
-!event ||
+    if (!chatOverlay) {
+        return;
+    }
 
-event.target ===
-
-document.getElementById('chatOverlay')
-
-) {
-
-document
-
-.getElementById('chatOverlay')
-
-.classList.remove('open');
-
+    if (
+        !event ||
+        event.target === chatOverlay
+    ) {
+        chatOverlay.classList.remove("open");
+    }
 }
-
-}
-
 
 
 function ask(text) {
 
-document.getElementById(
+    const input = document.getElementById("chatInput");
 
-'chatInput'
+    if (!input) {
+        return;
+    }
 
-).value = text;
+    input.value = text;
 
-sendMessage(
-
-new Event('submit')
-
-);
-
+    sendMessage(new Event("submit"));
 }
-
 
 
 function sendMessage(event) {
 
-event.preventDefault();
+    event.preventDefault();
 
-const input =
+    const input = document.getElementById("chatInput");
 
-document.getElementById(
+    if (!input) {
+        return;
+    }
 
-'chatInput'
+    const text = input.value.trim();
 
-);
+    if (!text) {
+        return;
+    }
 
-const text =
+    addMessage(text, "user");
 
-input.value.trim();
+    input.value = "";
 
-if (!text) return;
+    setTimeout(() => {
 
-addMessage(
+        addMessage(
+            botAnswer(text),
+            "bot"
+        );
 
-text,
-
-'user'
-
-);
-
-input.value = '';
-
-setTimeout(
-
-() => {
-
-addMessage(
-
-botAnswer(text),
-
-'bot'
-
-);
-
-},
-
-450
-
-);
-
+    }, 450);
 }
 
 
+function addMessage(text, type) {
 
-function addMessage(
+    const box = document.getElementById("messages");
 
-text,
+    if (!box) {
+        return;
+    }
 
-type
+    const div = document.createElement("div");
 
-) {
+    div.className = "message " + type;
 
-const box =
+    div.textContent = text;
 
-document.getElementById(
+    box.appendChild(div);
 
-'messages'
-
-);
-
-const div =
-
-document.createElement(
-
-'div'
-
-);
-
-div.className =
-
-'message ' + type;
-
-div.textContent =
-
-text;
-
-box.appendChild(div);
-
-box.scrollTop =
-
-box.scrollHeight;
-
+    box.scrollTop = box.scrollHeight;
 }
-
 
 
 function botAnswer(text) {
 
-const t =
-
-text.toLowerCase();
+    const t = text.toLowerCase();
 
 
+    if (
+        (t.includes("o que") && t.includes("herança")) ||
+        t.includes("herança digital")
+    ) {
 
-if (
+        return `Herança digital é o conjunto de contas, arquivos,
+conteúdos e outros elementos da vida digital de uma pessoa que podem
+ter importância após seu falecimento.
 
-t.includes('herança necessária') ||
+As regras podem variar conforme o serviço e a situação jurídica.`;
+    }
 
-t.includes('herdeiros necessários')
 
-) {
+    if (t.includes("inventário")) {
 
-return `
+        return `O inventário é o procedimento utilizado para identificar
+e organizar os bens, direitos e obrigações deixados pela pessoa falecida.
 
-Os herdeiros necessários são os descendentes,
+Este site possui informações gerais para ajudar na compreensão do tema,
+mas elas não substituem orientação jurídica profissional.`;
+    }
 
-os ascendentes e o cônjuge.
 
-O Código Civil determina que metade da herança
+    if (
+        t.includes("documento") ||
+        t.includes("segurança") ||
+        t.includes("privacidade")
+    ) {
 
-pertence a eles de pleno direito, formando a
+        return `O projeto foi pensado para não exigir o armazenamento de
+documentos pessoais.
 
-chamada legítima.
+Evite enviar senhas ou documentos sensíveis para serviços desconhecidos
+e procure orientação profissional quando necessário.`;
+    }
 
-Base legal: arts. 1.845 e 1.846 do Código Civil.
 
-`;
+    if (t.includes("testamento")) {
 
+        return `O testamento é uma forma de uma pessoa manifestar sua
+vontade sobre a destinação de seus bens após sua morte, respeitando os
+limites estabelecidos pela legislação.
+
+Em situações específicas, é importante consultar um advogado.`;
+    }
+
+
+    return `Posso explicar herança digital, inventário, privacidade,
+testamento e o funcionamento deste projeto.
+
+Para questões jurídicas específicas, procure um profissional habilitado.`;
 }
-
-
-
-if (
-
-t.includes('o que') &&
-
-t.includes('herança')
-
-||
-
-t.includes('herança digital')
-
-) {
-
-return `
-
-Herança é o conjunto de bens, direitos e
-
-obrigações transmissíveis deixados por uma
-
-pessoa após seu falecimento.
-
-A sucessão é aberta com a morte e a herança
-
-é transmitida aos herdeiros legítimos e
-
-testamentários.
-
-Base legal: art. 1.784 do Código Civil.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('inventário')
-
-) {
-
-return `
-
-O inventário é o procedimento usado para
-
-identificar e organizar os bens, direitos,
-
-dívidas e herdeiros da pessoa falecida.
-
-O Código de Processo Civil disciplina o
-
-inventário e a partilha nos arts. 610 e seguintes.
-
-Em determinadas situações, o inventário também
-
-pode ser realizado por escritura pública.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('prazo') &&
-
-t.includes('inventário')
-
-) {
-
-return `
-
-O Código de Processo Civil estabelece que
-
-o processo de inventário e partilha deve ser
-
-instaurado dentro de 2 meses a contar da
-
-abertura da sucessão.
-
-Base legal: art. 611 do CPC.
-
-Podem existir consequências tributárias pelo
-
-atraso conforme a legislação estadual ou distrital.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('dívida') ||
-
-t.includes('divida')
-
-) {
-
-return `
-
-As dívidas deixadas pelo falecido fazem parte
-
-das obrigações relacionadas ao espólio.
-
-O herdeiro não responde por encargos superiores
-
-às forças da herança.
-
-Base legal: art. 1.792 do Código Civil.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('testamento')
-
-) {
-
-return `
-
-O testamento permite que uma pessoa capaz
-
-disponha de seus bens para depois da morte,
-
-respeitando os limites legais.
-
-Quando existem herdeiros necessários,
-
-a legítima deve ser preservada.
-
-Base legal: arts. 1.789 e 1.857 do Código Civil.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('itcmd') ||
-
-t.includes('imposto')
-
-) {
-
-return `
-
-ITCMD significa Imposto sobre Transmissão
-
-Causa Mortis e Doação.
-
-É um imposto de competência dos estados
-
-e do Distrito Federal, por isso as regras
-
-podem variar conforme o local.
-
-A regulamentação do inventário extrajudicial
-
-teve atualização recente pela Resolução
-
-CNJ nº 695/2026.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('documento')
-
-) {
-
-return `
-
-A documentação varia conforme o caso.
-
-A certidão de óbito é necessária para
-
-o requerimento do inventário.
-
-Também podem ser necessários documentos
-
-dos herdeiros e documentos que comprovem
-
-a existência e propriedade dos bens.
-
-Base legal: arts. 615 e 620 do CPC.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('renunciar') ||
-
-t.includes('renúncia') ||
-
-t.includes('renuncia')
-
-) {
-
-return `
-
-É possível renunciar à herança.
-
-A renúncia precisa ser expressa e constar
-
-de instrumento público ou termo judicial.
-
-Base legal: art. 1.806 do Código Civil.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('digital') ||
-
-t.includes('conta') ||
-
-t.includes('rede social')
-
-) {
-
-return `
-
-Contas, arquivos, conteúdos e outros elementos
-
-digitais podem exigir uma análise específica
-
-após o falecimento.
-
-Nem todo conteúdo digital funciona juridicamente
-
-da mesma forma que um bem tradicional.
-
-O projeto ajuda a identificar esses elementos
-
-e orienta o usuário a procurar ajuda profissional
-
-quando houver uma questão jurídica específica.
-
-`;
-
-}
-
-
-
-if (
-
-t.includes('segurança') ||
-
-t.includes('privacidade')
-
-) {
-
-return `
-
-O projeto foi pensado para não exigir o
-
-armazenamento de documentos pessoais.
-
-Evite enviar senhas ou documentos sensíveis
-
-para serviços desconhecidos.
-
-Quando houver uma questão jurídica específica,
-
-procure um profissional habilitado.
-
-`;
-
-}
-
-
-
-return `
-
-Posso explicar:
-
-• herança
-
-• inventário
-
-• herdeiros necessários
-
-• testamento
-
-• dívidas
-
-• ITCMD
-
-• documentos
-
-• renúncia à herança
-
-• herança digital
-
-Também posso explicar como o site funciona.
-
-Para questões jurídicas específicas,
-
-procure um profissional habilitado.
-
-`;
-
-}
-
 
 
 function toggleMenu() {
 
-const nav =
+    const nav = document.getElementById("mainNav");
 
-document.querySelector('nav');
+    if (!nav) {
+        return;
+    }
 
-nav.style.display =
-
-nav.style.display === 'flex'
-
-? 'none'
-
-: 'flex';
-
-if (
-
-nav.style.display === 'flex'
-
-) {
-
-nav.style.position =
-
-'absolute';
-
-nav.style.top =
-
-'78px';
-
-nav.style.left =
-
-'0';
-
-nav.style.right =
-
-'0';
-
-nav.style.background =
-
-'white';
-
-nav.style.padding =
-
-'20px';
-
-nav.style.flexDirection =
-
-'column';
-
+    nav.classList.toggle("active");
 }
 
-}
+
+/* Fecha o menu quando um link é clicado no celular */
+
+document.querySelectorAll("#mainNav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        const nav = document.getElementById("mainNav");
+
+        if (nav) {
+            nav.classList.remove("active");
+        }
+
+    });
+
+});
