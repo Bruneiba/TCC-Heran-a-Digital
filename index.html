@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herança Digital | Inventário</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+<a class="logo" href="#inicio">
+<span>🕊️</span>
+Herança Digital
+</a>
+
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#inventario">Inventário</a>
+<a href="#orientacao">Orientação</a>
+
+<button class="nav-button" onclick="openChat()">
+Falar com a IA
+</button>
+</nav>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+</header>
+
+
+<main>
+
+
+<section class="hero" id="inicio">
+
+<div class="hero-text">
+
+<span class="tag">
+INFORMAÇÃO • ORGANIZAÇÃO • ORIENTAÇÃO
+</span>
+
+<h1>
+Cuide hoje do seu
+<br>
+<em>legado digital.</em>
+</h1>
+
+<p>
+Um espaço para entender, organizar e planejar
+o destino das suas contas, arquivos e informações digitais.
+</p>
+
+<div class="hero-actions">
+
+<a class="primary" href="#inventario">
+Começar inventário →
+</a>
+
+<a class="secondary" href="#sobre">
+Entenda o projeto
+</a>
+
+</div>
+
+<div class="trust">
+<span>✓</span>
+Não armazenamos seus documentos pessoais
+</div>
+
+</div>
+
+
+<div class="hero-art">
+
+<div class="glow"></div>
+
+<div class="circle">
+<div class="dove">🕊</div>
+</div>
+
+<div class="floating-card card-one">
+🔐
+<div>
+<strong>Privacidade</strong>
+<small>Seus dados ficam com você.</small>
+</div>
+</div>
+
+<div class="floating-card card-two">
+📋
+<div>
+<strong>Organização</strong>
+<small>Tenha tudo em um só lugar.</small>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOBRE -->
+
+<section class="section" id="sobre">
+
+<div class="section-heading">
+
+<span class="eyebrow">
+SOBRE O PROJETO
+</span>
+
+<h2>
+Por que pensar na sua
+<br>
+herança digital?
+</h2>
+
+<p>
+Hoje, grande parte da nossa vida existe no ambiente digital.
+Planejar esse legado pode facilitar decisões futuras e evitar
+a perda de informações importantes.
+</p>
+
+</div>
+
+
+<div class="features">
+
+<article>
+
+<div class="icon">💻</div>
+
+<h3>
+Vida digital
+</h3>
+
+<p>
+Contas, redes sociais, fotos, arquivos, assinaturas
+e outros bens digitais fazem parte do nosso cotidiano.
+</p>
+
+</article>
+
+
+<article>
+
+<div class="icon">🧭</div>
+
+<h3>
+Orientação
+</h3>
+
+<p>
+Encontre informações para compreender o tema e saber
+quais caminhos podem ser considerados.
+</p>
+
+</article>
+
+
+<article>
+
+<div class="icon">🛡️</div>
+
+<h3>
+Privacidade
+</h3>
+
+<p>
+O projeto foi pensado para orientar sem exigir que
+documentos pessoais sejam enviados ou armazenados.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- INVENTÁRIO -->
+
+<section class="inventory section" id="inventario">
+
+<div class="inventory-copy">
+
+<span class="eyebrow">
+INVENTÁRIO DIGITAL
+</span>
+
+<h2>
+Organize seu legado
+<br>
+em poucos passos.
+</h2>
+
+<p>
+Use a lista abaixo como um guia.
+Ela não substitui orientação jurídica, mas ajuda você
+a identificar o que possui no ambiente digital.
+</p>
+
+<button class="primary" onclick="startInventory()">
+Iniciar checklist
+</button>
+
+</div>
+
+
+<div class="checklist" id="checklist">
+
+<div class="progress">
+<span id="progressBar"></span>
+</div>
+
+<p class="progress-label">
+<b id="progressText">0%</b>
+concluído
+</p>
+
+
+<label>
+<input type="checkbox" onchange="updateProgress()">
+<span>📱</span>
+Contas de e-mail
+</label>
+
+
+<label>
+<input type="checkbox" onchange="updateProgress()">
+<span>📸</span>
+Redes sociais
+</label>
+
+
+<label>
+<input type="checkbox" onchange="updateProgress()">
+<span>☁️</span>
+Armazenamento em nuvem
+</label>
+
+
+<label>
+<input type="checkbox" onchange="updateProgress()">
+<span>💳</span>
+Assinaturas e serviços
+</label>
+
+
+<label>
+<input type="checkbox" onchange="updateProgress()">
+<span>🖼️</span>
+Fotos e arquivos importantes
+</label>
+
+
+<label>
+<input type="checkbox" onchange="updateProgress()">
+<span>🎮</span>
+Jogos e bens digitais
+</label>
+
+</div>
+
+</section>
+
+
+<!-- COMO FUNCIONA -->
+
+<section class="steps section" id="orientacao">
+
+<div class="section-heading center">
+
+<span class="eyebrow">
+COMO FUNCIONA
+</span>
+
+<h2>
+Um caminho simples para começar
+</h2>
+
+</div>
+
+
+<div class="step-grid">
+
+<div class="step">
+
+<b>01</b>
+
+<h3>
+Identifique
+</h3>
+
+<p>
+Liste as contas e os conteúdos digitais
+que fazem parte da sua vida.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<b>02</b>
+
+<h3>
+Organize
+</h3>
+
+<p>
+Defina quais informações são relevantes
+e como elas podem ser administradas.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<b>03</b>
+
+<h3>
+Oriente-se
+</h3>
+
+<p>
+Consulte fontes confiáveis e profissionais
+quando houver questões jurídicas.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CHAT -->
+
+<section class="cta">
+
+<div>
+
+<span class="eyebrow">
+PRECISA DE AJUDA?
+</span>
+
+<h2>
+Converse com nosso
+<br>
+assistente virtual.
+</h2>
+
+<p>
+Faça perguntas sobre o funcionamento do projeto
+e receba orientações gerais.
+</p>
+
+</div>
+
+
+<button class="white-button" onclick="openChat()">
+Abrir assistente →
+</button>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="logo">
+<span>🕊️</span>
+Herança Digital
+</div>
+
+<p>
+Projeto acadêmico • Herança Digital e Inventário
+</p>
+
+</footer>
+
+
+<!-- JANELA DO CHAT -->
+
+<div class="chat-overlay" id="chatOverlay">
+
+<div class="chat">
+
+<div class="chat-head">
+
+<div>
+
+<b>
+🕊️ Assistente Digital
+</b>
+
+<small>
+Orientação geral
+</small>
+
+</div>
+
+<button onclick="closeChat()">
+×
+</button>
+
+</div>
+
+
+<div class="messages" id="messages">
+
+<div class="message bot">
+
+Olá! 👋 Sou o assistente do projeto.
+Posso explicar o que é herança digital,
+o inventário e como o site funciona.
+
+</div>
+
+</div>
+
+
+<div class="suggestions">
+
+<button onclick="ask('O que é herança digital?')">
+O que é herança digital?
+</button>
+
+<button onclick="ask('Como funciona o inventário?')">
+Como funciona o inventário?
+</button>
+
+</div>
+
+
+<form onsubmit="sendMessage(event)">
+
+<input
+id="chatInput"
+placeholder="Digite sua pergunta..."
+autocomplete="off"
+>
+
+<button>
+➤
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+ 
