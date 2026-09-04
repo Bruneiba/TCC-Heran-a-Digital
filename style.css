@@ -1,957 +1,956 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 :root {
     --blue: #b9d9ee;
     --deep: #244a67;
     --dark: #17344b;
     --light: #f7fbfe;
     --text: #334957;
+    --muted: #6d7f8b;
     --line: #dceaf3;
+    --white: #ffffff;
+    --shadow: 0 15px 45px rgba(36, 74, 103, 0.10);
 }
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: Inter, Arial, sans-serif;
+    font-family: "Inter", sans-serif;
+    background: var(--white);
     color: var(--text);
-    background: #fff;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* ================= HEADER ================= */
 
 .header {
     height: 78px;
+    padding: 0 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 7%;
-
-    border-bottom: 1px solid #edf4f8;
-
-    background: rgba(255, 255, 255, .95);
-
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
-
-    z-index: 10;
-
-    backdrop-filter: blur(10px);
+    z-index: 100;
 }
+
 
 .logo {
-    font-weight: 700;
-    color: var(--deep);
-
-    text-decoration: none;
-
-    font-size: 18px;
-
     display: flex;
     align-items: center;
-
     gap: 9px;
+    color: var(--deep);
+    font-size: 18px;
+    font-weight: 700;
 }
+
 
 .logo span {
-    font-size: 25px;
+    font-size: 23px;
 }
+
 
 nav {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 20px;
 }
+
 
 nav a {
-    color: #526b7c;
-    text-decoration: none;
-
+    color: var(--text);
     font-size: 14px;
     font-weight: 500;
+    transition: 0.2s;
 }
+
 
 nav a:hover {
     color: var(--deep);
 }
 
-.nav-button,
-.primary,
-.white-button {
-    border: 0;
-
-    border-radius: 12px;
-
-    padding: 12px 19px;
-
-    background: var(--deep);
-
-    color: white;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    text-decoration: none;
-
-    display: inline-block;
-}
 
 .nav-button {
-    font-size: 13px;
+    border: none;
+    background: var(--deep);
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-weight: 600;
 }
+
 
 .menu {
     display: none;
-
+    border: none;
     background: none;
-
-    border: 0;
-
-    font-size: 25px;
+    font-size: 27px;
+    color: var(--deep);
 }
 
 
-/* =========================================================
-   HERO
-   ========================================================= */
+/* ================= HERO ================= */
 
 .hero {
     min-height: 650px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 
     background:
-        linear-gradient(
-            125deg,
-            #f9fdff 0%,
-            #edf8fd 100%
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    padding: 70px 9%;
-
-    overflow: hidden;
+        radial-gradient(
+            circle at 80% 40%,
+            #e5f3fb 0%,
+            transparent 34%
+        ),
+        var(--light);
 }
 
+
 .hero-text {
-    width: 55%;
     max-width: 650px;
 }
 
+
 .tag,
 .eyebrow {
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
+    display: inline-block;
+    color: var(--deep);
+    font-size: 12px;
     font-weight: 700;
-
-    color: #6793af;
+    letter-spacing: 1.5px;
 }
 
-h1,
-h2 {
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
 
+.hero h1 {
+    margin: 18px 0;
+    font-family: "Playfair Display", serif;
     color: var(--dark);
-
-    line-height: 1.12;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.08;
 }
 
-h1 {
-    font-size: 62px;
-    margin: 17px 0;
-}
 
-h1 em {
-    color: #6396b8;
+.hero h1 em {
+    color: var(--deep);
     font-style: normal;
 }
 
-h2 {
-    font-size: 42px;
-}
 
-p {
-    color: #657b89;
-}
-
-.hero-text > p {
+.hero p {
+    max-width: 600px;
+    color: var(--muted);
     font-size: 17px;
-    max-width: 540px;
 }
+
 
 .hero-actions {
     display: flex;
-
-    gap: 14px;
-
+    gap: 15px;
     margin-top: 30px;
-
-    align-items: center;
+    flex-wrap: wrap;
 }
+
+
+.primary,
+.secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 13px 21px;
+    font-weight: 600;
+}
+
+
+.primary {
+    border: none;
+    background: var(--deep);
+    color: white;
+}
+
 
 .secondary {
+    border: 1px solid var(--line);
+    background: white;
     color: var(--deep);
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    padding: 12px 10px;
 }
+
 
 .trust {
-    font-size: 12px;
-
-    margin-top: 25px;
-
-    color: #718792;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 13px;
 }
+
 
 .trust span {
-    background: #dff2e7;
-
-    color: #32835a;
-
-    border-radius: 50%;
-
-    padding: 2px 5px;
-
-    margin-right: 6px;
+    color: #4d8a67;
+    font-weight: bold;
 }
 
 
-/* =========================================================
-   ILUSTRAÇÃO
-   ========================================================= */
+/* ================= HERO ART ================= */
 
 .hero-art {
-    width: 45%;
-
-    height: 480px;
-
+    width: 400px;
+    height: 400px;
     position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
+    flex-shrink: 0;
 }
 
-.circle {
-    width: 360px;
-
-    height: 360px;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #d9edf8,
-            #acd1e7
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    box-shadow:
-        0 30px 70px #83b1cb45;
-}
-
-.dove {
-    font-size: 155px;
-
-    filter:
-        drop-shadow(
-            0 12px 10px #668da533
-        );
-}
 
 .glow {
     position: absolute;
-
-    width: 400px;
-
-    height: 400px;
-
+    width: 330px;
+    height: 330px;
+    background: #dceef9;
     border-radius: 50%;
-
-    border: 1px solid #a9cfe4;
+    top: 30px;
+    left: 35px;
 }
+
+
+.circle {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    background: white;
+    border: 12px solid var(--blue);
+    border-radius: 50%;
+    top: 80px;
+    left: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+
+.dove {
+    font-size: 80px;
+}
+
 
 .floating-card {
     position: absolute;
-
     background: white;
-
-    padding: 14px 17px;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 15px 35px #37647b20;
-
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 13px;
     display: flex;
-
     gap: 10px;
-
     align-items: center;
-
-    color: var(--deep);
-
-    font-size: 14px;
+    box-shadow: var(--shadow);
+    font-size: 22px;
 }
 
+
+.floating-card strong,
 .floating-card small {
     display: block;
+}
 
-    color: #8295a0;
 
+.floating-card strong {
+    color: var(--dark);
+    font-size: 13px;
+}
+
+
+.floating-card small {
+    color: var(--muted);
     font-size: 10px;
 }
 
+
 .card-one {
-    top: 80px;
-    right: 15px;
+    top: 30px;
+    right: -10px;
 }
+
 
 .card-two {
-    bottom: 75px;
-    left: 15px;
+    bottom: 45px;
+    left: -20px;
 }
 
 
-/* =========================================================
-   SEÇÕES
-   ========================================================= */
+/* ================= SECTIONS ================= */
 
 .section {
-    padding: 100px 9%;
+    padding: 100px 8%;
 }
+
 
 .section-heading {
-    max-width: 700px;
-
-    margin-bottom: 48px;
+    max-width: 780px;
+    margin-bottom: 55px;
 }
+
 
 .section-heading h2 {
-    margin: 12px 0 15px;
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    margin: 12px 0 20px;
 }
+
 
 .section-heading p {
-    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 14px;
 }
 
-.center {
-    text-align: center;
 
+.section-heading.small {
+    margin-bottom: 30px;
+}
+
+
+.section-heading.small h2 {
+    font-size: 34px;
+}
+
+
+.section-heading.center {
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
 
-/* =========================================================
-   CARDS
-   ========================================================= */
+/* ================= SOBRE ================= */
 
 .features {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
+
 .features article {
     border: 1px solid var(--line);
-
-    border-radius: 18px;
-
+    border-radius: 14px;
     padding: 30px;
-
-    background: #fff;
+    background: white;
+    transition: 0.25s;
 }
+
+
+.features article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
 
 .icon {
-    font-size: 27px;
-
-    margin-bottom: 18px;
-}
-
-.features h3,
-.step h3 {
-    color: var(--dark);
-
-    margin-bottom: 8px;
-}
-
-.features p,
-.step p {
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   INVENTÁRIO
-   ========================================================= */
-
-.inventory {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
     background: var(--light);
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 70px;
-
-    align-items: center;
-}
-
-.inventory-copy p {
-    margin: 18px 0 28px;
-
-    max-width: 500px;
-}
-
-.checklist {
-    background: white;
-
-    border: 1px solid var(--line);
-
-    border-radius: 22px;
-
-    padding: 27px;
-
-    box-shadow:
-        0 20px 45px #416a7d0d;
-}
-
-.progress {
-    height: 8px;
-
-    background: #edf3f6;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-.progress span {
-    display: block;
-
-    width: 0;
-
-    height: 100%;
-
-    background: #6fa7c8;
-
-    transition: .3s;
-}
-
-.progress-label {
-    font-size: 12px;
-
-    margin: 10px 0 15px;
-
-    text-align: right;
-}
-
-.checklist label {
     display: flex;
-
     align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
 
-    gap: 12px;
 
-    padding: 13px 5px;
+.features h3 {
+    color: var(--dark);
+    margin-bottom: 10px;
+}
 
-    border-bottom:
-        1px solid #eef4f7;
 
+.features p {
+    color: var(--muted);
     font-size: 14px;
-
-    cursor: pointer;
-}
-
-.checklist label:last-child {
-    border: 0;
-}
-
-.checklist input {
-    accent-color: #5f98ba;
-
-    width: 17px;
-
-    height: 17px;
-}
-
-.checklist label span {
-    font-size: 19px;
 }
 
 
-/* =========================================================
-   PASSOS
-   ========================================================= */
-
-.step-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 30px;
-}
-
-.step {
-    padding: 30px;
-
-    border-left:
-        2px solid var(--blue);
-}
-
-.step b {
-    font-size: 12px;
-
-    color: #7ca8c1;
-}
-
-.step h3 {
-    margin-top: 12px;
-}
-
-
-/* =========================================================
-   ÁREA DE LEIS E HERANÇA
-   ========================================================= */
+/* ================= LEIS ================= */
 
 .legal-section {
-    width: 100%;
-
-    padding: 100px 9%;
-
-    background: #f7fbfe;
+    padding: 100px 8%;
+    background: #f8fbfd;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
-
-/* INTRODUÇÃO */
 
 .legal-intro {
-    width: 100%;
-
-    max-width: 950px;
-
-    margin: 0 auto 65px;
+    max-width: 850px;
+    margin-bottom: 45px;
 }
 
+
 .legal-intro h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.15;
     margin: 12px 0 20px;
 }
 
-.legal-intro > p {
-    font-size: 15px;
 
-    line-height: 1.8;
-
-    margin-bottom: 18px;
+.legal-intro p {
+    color: var(--muted);
+    margin-bottom: 14px;
 }
 
-
-/* CAIXA DE EXPLICAÇÃO */
 
 .legal-highlight {
-    width: 100%;
-
+    max-width: 1000px;
+    margin-bottom: 70px;
+    padding: 25px;
+    display: flex;
+    gap: 20px;
     background: white;
-
-    border: 1px solid var(--line);
-
-    border-left: 4px solid #6fa7c8;
-
-    border-radius: 15px;
-
-    padding: 25px 28px;
-
-    margin-top: 30px;
+    border-left: 5px solid var(--deep);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(36, 74, 103, 0.06);
 }
 
-.legal-highlight strong {
-    display: block;
 
+.highlight-icon {
+    font-size: 28px;
+}
+
+
+.legal-highlight h3 {
     color: var(--dark);
-
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
+
 
 .legal-highlight p {
-    margin: 0;
-
-    font-size: 14px;
-
-    line-height: 1.8;
+    color: var(--muted);
 }
 
 
-/* AVISO */
+/* ================= CARDS DAS LEIS ================= */
+
+.legislation-box {
+    margin-bottom: 80px;
+}
+
+
+.law-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.law-card {
+    padding: 27px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    transition: 0.25s;
+}
+
+
+.law-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+
+.law-number {
+    color: var(--deep);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+.law-card h3 {
+    color: var(--dark);
+    font-size: 21px;
+    margin: 8px 0 10px;
+}
+
+
+.law-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+.law-card a {
+    color: var(--deep);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+
+/* ================= TEXTO LEGAL ================= */
+
+.legal-content {
+    max-width: 950px;
+    margin: 0 auto 80px;
+}
+
+
+.legal-text {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 30px;
+}
+
+
+.legal-text p {
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
 
 .legal-note {
-    width: 100%;
-
+    margin-top: 18px;
+    padding: 20px;
+    border-radius: 10px;
     background: #eef7fc;
-
-    border: 1px solid var(--line);
-
-    border-radius: 12px;
-
-    padding: 17px 20px;
-
-    margin-top: 22px;
-
-    font-size: 13px;
-
-    line-height: 1.7;
+    color: var(--text);
 }
 
 
-/* =========================================================
-   PERGUNTAS FREQUENTES
-   ========================================================= */
-
-.legal-start {
-    width: 100%;
-
-    max-width: 1000px;
-
-    margin: 0 auto 85px;
-}
-
-.legal-start h3 {
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 32px;
-
-    color: var(--dark);
-
-    margin: 10px 0;
-}
-
-.legal-start > p {
-    font-size: 14px;
-
-    margin-bottom: 28px;
-}
-
-
-/* CAIXA DAS PERGUNTAS */
-
-.question-list {
-    width: 100%;
-
-    background: white;
-
-    border: 1px solid var(--line);
-
-    border-radius: 17px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 12px 35px rgba(65, 106, 125, .08);
-}
-
-
-/* CADA PERGUNTA */
-
-.question-list a {
-    width: 100%;
-
-    min-height: 62px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 17px 23px;
-
-    background: white;
-
-    border: 0;
-
-    border-bottom:
-        1px solid #e8f0f4;
-
+.legal-note strong {
     color: var(--deep);
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: 500;
-
-    transition: .2s ease;
-}
-
-.question-list a:last-child {
-    border-bottom: none;
-}
-
-.question-list a:hover {
-    background: #f5faff;
-
-    padding-left: 29px;
-}
-
-.question-list a span {
-    display: block;
-}
-
-.question-list a strong {
-    flex-shrink: 0;
-
-    margin-left: 20px;
-
-    font-size: 18px;
-
-    color: #6fa7c8;
 }
 
 
-/* =========================================================
-   RESPOSTAS DAS PERGUNTAS
-   ========================================================= */
+/* ================= PERGUNTAS ================= */
 
 .faq-section {
-    width: 100%;
-
-    max-width: 1000px;
-
+    max-width: 1050px;
     margin: 0 auto;
 }
 
-.faq-section > h2 {
-    margin: 12px 0 45px;
+
+.question-list {
+    border-top: 1px solid var(--line);
+    margin-bottom: 60px;
 }
 
 
-/* CADA RESPOSTA É UMA CAIXA */
+.question-list a {
+    min-height: 62px;
+    padding: 15px 5px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--deep);
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+
+.question-list a:hover {
+    padding-left: 10px;
+}
+
+
+.question-list b {
+    font-size: 20px;
+}
+
+
+.faq-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
 
 .faq-answer {
-    width: 100%;
-
-    display: block;
-
     background: white;
-
     border: 1px solid var(--line);
-
-    border-radius: 18px;
-
+    border-radius: 13px;
     padding: 32px;
-
-    margin: 0 0 25px 0;
-
-    box-shadow:
-        0 10px 30px rgba(65, 106, 125, .06);
-
     scroll-margin-top: 100px;
 }
 
-.faq-answer h3 {
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
 
-    color: var(--dark);
-
-    font-size: 27px;
-
-    line-height: 1.3;
-
-    margin: 0 0 17px 0;
+.faq-answer:target {
+    border-color: var(--blue);
+    box-shadow: 0 10px 35px rgba(36, 74, 103, 0.09);
 }
+
+
+.answer-number {
+    color: var(--deep);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+.faq-answer h3 {
+    color: var(--dark);
+    font-size: 24px;
+    margin: 5px 0 18px;
+}
+
 
 .faq-answer p {
-    color: #657b89;
-
-    font-size: 14px;
-
-    line-height: 1.8;
-
-    margin: 0 0 16px 0;
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 14px;
 }
 
-.faq-answer p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* =========================================================
-   BASE LEGAL
-   ========================================================= */
 
 .law-reference {
-    width: 100%;
-
-    margin-top: 25px;
-
-    padding: 16px 18px;
-
-    background: #f4f9fc;
-
-    border: 1px solid #e3eef4;
-
-    border-left: 3px solid #9ec7df;
-
-    border-radius: 10px;
-
-    color: #617784;
-
-    font-size: 12px;
-
-    line-height: 1.7;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: var(--light);
+    color: var(--text);
+    font-size: 13px;
 }
+
 
 .law-reference strong {
     color: var(--deep);
 }
 
 
-/* =========================================================
-   LEGISLAÇÃO
-   ========================================================= */
-
-.legislation-box {
-    width: 100%;
-
-    max-width: 1000px;
-
-    margin: 65px auto 0;
-
-    padding: 32px;
-
+.source-note {
+    max-width: 1050px;
+    margin: 70px auto 0;
+    padding: 25px;
     background: white;
-
     border: 1px solid var(--line);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 10px 30px rgba(65, 106, 125, .05);
+    border-radius: 12px;
 }
 
-.legislation-box h3 {
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
 
+.source-note strong {
     color: var(--dark);
-
-    font-size: 28px;
-
-    margin: 10px 0 25px;
 }
 
-.law-grid {
-    width: 100%;
+
+.source-note p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+
+/* ================= INVENTÁRIO ================= */
+
+.inventory {
+    background: var(--light);
+    display: grid;
+    grid-template-columns: 0.9fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+
+.inventory-copy h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--dark);
+    font-size: 45px;
+    line-height: 1.15;
+    margin: 12px 0 20px;
+}
+
+
+.inventory-copy p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+
+.checklist {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+
+.progress {
+    height: 8px;
+    background: #edf3f7;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.progress span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--deep);
+    transition: width 0.3s;
+}
+
+
+.progress-label {
+    text-align: right;
+    color: var(--muted);
+    font-size: 12px;
+    margin: 10px 0 20px;
+}
+
+
+.checklist label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 5px;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    cursor: pointer;
+}
+
+
+.checklist label:last-child {
+    border-bottom: none;
+}
+
+
+.checklist input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--deep);
+}
+
+
+.checklist label span {
+    font-size: 20px;
+}
+
+
+/* ================= ORIENTAÇÃO ================= */
+
+.steps {
+    background: white;
+}
+
+
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.step {
+    padding: 30px;
+    border-top: 3px solid var(--blue);
+    background: var(--light);
+}
+
+
+.step b {
+    color: var(--deep);
+    font-size: 13px;
+}
+
+
+.step h3 {
+    color: var(--dark);
+    margin: 10px 0;
+}
+
+
+.step p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* ================= IA ================= */
+
+.cta {
+    margin: 30px 8% 70px;
+    padding: 55px;
+    background: var(--deep);
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+.cta .eyebrow {
+    color: var(--blue);
+}
+
+
+.cta h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    line-height: 1.15;
+    margin: 10px 0;
+}
+
+
+.cta p {
+    opacity: 0.85;
+}
+
+
+.white-button {
+    border: none;
+    background: white;
+    color: var(--deep);
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* =================================================
+   ADVOGADOS PARCEIROS
+================================================= */
+
+.lawyers-section {
+    padding: 80px 8% 100px;
+    background: white;
+}
+
+
+.lawyers-section .section-heading {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+
+.lawyers-grid {
+    max-width: 980px;
+    margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 14px;
+    gap: 20px;
 }
 
-.law-grid div {
+
+.lawyer-card {
+    min-height: 125px;
+
+    padding: 22px 25px;
+
+    background: var(--deep);
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    box-shadow: 0 8px 25px rgba(36, 74, 103, 0.10);
+
+    transition: 0.25s;
+}
+
+
+.lawyer-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 14px 35px rgba(36, 74, 103, 0.18);
+}
+
+
+.lawyer-photo {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+
+    border-radius: 50%;
+
+    background: #8fa0ab;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+.lawyer-photo svg {
+    width: 52px;
+    height: 52px;
+}
+
+
+.lawyer-info {
     min-width: 0;
-
-    padding: 17px;
-
-    border: 1px solid #edf3f6;
-
-    border-radius: 12px;
-
-    background: white;
 }
 
-.law-grid strong {
-    display: block;
 
-    color: var(--deep);
-
-    font-size: 14px;
-
-    margin-bottom: 4px;
+.lawyer-info h3 {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
-.law-grid span {
-    display: block;
 
-    color: #718792;
-
-    font-size: 12px;
-
+.lawyer-info p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
     line-height: 1.5;
-}
-
-.source-note {
-    margin-top: 25px;
-
-    font-size: 11px;
-
-    line-height: 1.6;
+    margin: 2px 0;
+    word-break: break-word;
 }
 
 
-/* =========================================================
-   CTA
-   ========================================================= */
+/* ================= FOOTER ================= */
 
-.cta {
-    margin:
-        0 9% 80px;
+footer {
+    padding: 35px 8%;
 
-    padding: 60px 65px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #244a67,
-            #6e9fbc
-        );
+    border-top: 1px solid var(--line);
 
     display: flex;
 
@@ -960,61 +959,36 @@ p {
     align-items: center;
 
     gap: 30px;
-}
 
-.cta h2,
-.cta p,
-.cta .eyebrow {
-    color: white;
-}
-
-.cta p {
-    opacity: .85;
-
-    margin-top: 10px;
-}
-
-.white-button {
     background: white;
-
-    color: var(--deep);
-
-    white-space: nowrap;
 }
 
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-    padding: 30px 9%;
-
-    border-top:
-        1px solid var(--line);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
 
 footer p {
+    color: var(--muted);
     font-size: 12px;
 }
 
 
-/* =========================================================
-   CHAT
-   ========================================================= */
+footer p a {
+    color: var(--deep);
+    font-weight: 600;
+}
+
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= CHAT ================= */
 
 .chat-overlay {
     position: fixed;
 
     inset: 0;
 
-    background: #18384a55;
+    background: rgba(13, 34, 48, 0.42);
 
     display: none;
 
@@ -1024,24 +998,25 @@ footer p {
 
     padding: 25px;
 
-    z-index: 20;
+    z-index: 500;
 }
+
 
 .chat-overlay.open {
     display: flex;
 }
 
-.chat {
-    width: 390px;
 
-    height: 570px;
+.chat {
+    width: min(420px, 100%);
+
+    height: min(650px, 90vh);
 
     background: white;
 
-    border-radius: 22px;
+    border-radius: 16px;
 
-    box-shadow:
-        0 25px 80px #16384a55;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 
     display: flex;
 
@@ -1049,6 +1024,7 @@ footer p {
 
     overflow: hidden;
 }
+
 
 .chat-head {
     padding: 18px;
@@ -1059,280 +1035,417 @@ footer p {
 
     display: flex;
 
+    align-items: center;
+
     justify-content: space-between;
 }
 
+
+.chat-head b,
 .chat-head small {
     display: block;
-
-    opacity: .7;
-
-    font-size: 10px;
 }
+
+
+.chat-head small {
+    opacity: 0.75;
+    font-size: 11px;
+}
+
 
 .chat-head button {
-    border: 0;
-
+    border: none;
     background: none;
-
     color: white;
-
-    font-size: 25px;
-
-    cursor: pointer;
+    font-size: 28px;
 }
+
 
 .messages {
     flex: 1;
-
-    padding: 20px;
-
-    overflow: auto;
-
-    background: #f7fbfd;
+    overflow-y: auto;
+    padding: 18px;
 }
+
 
 .message {
     max-width: 85%;
-
     padding: 11px 14px;
-
-    border-radius: 14px;
-
-    margin-bottom: 12px;
-
+    border-radius: 12px;
+    margin-bottom: 10px;
     font-size: 13px;
 }
 
-.bot {
-    background: white;
 
-    border:
-        1px solid var(--line);
+.message.bot {
+    background: #edf6fb;
+    color: var(--text);
 }
 
-.user {
-    background: #dceef8;
 
+.message.user {
     margin-left: auto;
+    background: var(--deep);
+    color: white;
 }
+
 
 .suggestions {
-    padding: 8px 12px;
+    padding: 10px 15px;
 
     display: flex;
 
     gap: 7px;
 
-    overflow: auto;
+    overflow-x: auto;
+
+    border-top: 1px solid var(--line);
 }
 
-.suggestions button {
-    white-space: nowrap;
 
-    border:
-        1px solid var(--line);
+.suggestions button {
+    border: 1px solid var(--line);
 
     background: white;
 
-    border-radius: 20px;
-
-    padding: 7px 10px;
-
-    font-size: 10px;
-
     color: var(--deep);
 
-    cursor: pointer;
+    border-radius: 20px;
+
+    padding: 7px 11px;
+
+    white-space: nowrap;
+
+    font-size: 11px;
 }
 
-.chat form {
-    display: flex;
 
+.chat form {
     padding: 12px;
 
-    border-top:
-        1px solid var(--line);
+    border-top: 1px solid var(--line);
+
+    display: flex;
 
     gap: 8px;
 }
 
-.chat input {
+
+.chat form input {
     flex: 1;
 
-    border:
-        1px solid var(--line);
+    min-width: 0;
 
-    border-radius: 12px;
+    border: 1px solid var(--line);
+
+    border-radius: 8px;
 
     padding: 11px;
 
     outline: none;
 }
 
+
 .chat form button {
-    border: 0;
+    width: 45px;
+
+    border: none;
+
+    border-radius: 8px;
 
     background: var(--deep);
 
     color: white;
-
-    border-radius: 11px;
-
-    width: 43px;
-
-    cursor: pointer;
 }
 
 
-/* =========================================================
-   CELULAR
-   ========================================================= */
+/* ================= RESPONSIVO ================= */
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
+
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
 
     .header {
         padding: 0 5%;
     }
 
+
     nav {
         display: none;
+
+        position: absolute;
+
+        top: 78px;
+
+        left: 0;
+
+        right: 0;
+
+        background: white;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        border-bottom: 1px solid var(--line);
+
+        box-shadow: var(--shadow);
     }
+
+
+    nav.active {
+        display: flex;
+    }
+
+
+    nav a {
+        padding: 8px 0;
+    }
+
+
+    .nav-button {
+        width: 100%;
+    }
+
 
     .menu {
         display: block;
     }
 
+
     .hero {
-        padding: 55px 7%;
+        padding: 70px 6%;
 
-        display: block;
+        flex-direction: column;
+
+        text-align: center;
     }
 
-    .hero-text {
-        width: 100%;
+
+    .hero p {
+        margin: auto;
     }
 
-    h1 {
-        font-size: 46px;
+
+    .hero-actions {
+        justify-content: center;
     }
+
+
+    .trust {
+        justify-content: center;
+    }
+
 
     .hero-art {
-        width: 100%;
-
-        height: 350px;
+        width: 320px;
+        height: 320px;
     }
 
-    .circle {
-        width: 270px;
 
+    .glow {
+        width: 270px;
         height: 270px;
     }
 
+
+    .circle {
+        width: 190px;
+        height: 190px;
+        left: 65px;
+    }
+
+
     .dove {
-        font-size: 110px;
+        font-size: 65px;
     }
 
-    .floating-card {
-        transform: scale(.85);
+
+    .card-one {
+        right: -5px;
     }
 
-    .section {
-        padding: 70px 7%;
+
+    .card-two {
+        left: -5px;
     }
+
 
     .features,
-    .step-grid,
+    .law-grid,
+    .step-grid {
+        grid-template-columns: 1fr;
+    }
+
+
     .inventory {
         grid-template-columns: 1fr;
     }
 
-    .inventory {
-        gap: 40px;
+
+    .lawyers-grid {
+        grid-template-columns: 1fr;
     }
 
+
+    .section,
     .legal-section {
-        padding: 70px 7%;
+        padding: 75px 6%;
     }
 
-    .legal-intro h2 {
-        font-size: 36px;
-    }
-
-    .legal-intro > p {
-        font-size: 14px;
-    }
-
-    .legal-start {
-        margin-bottom: 65px;
-    }
-
-    .question-list a {
-        min-height: 58px;
-
-        padding: 15px 17px;
-
-        font-size: 13px;
-    }
-
-    .question-list a:hover {
-        padding-left: 21px;
-    }
-
-    .faq-answer {
-        padding: 23px;
-
-        margin-bottom: 20px;
-    }
-
-    .faq-answer h3 {
-        font-size: 24px;
-    }
-
-    .faq-answer p {
-        font-size: 13px;
-
-        line-height: 1.7;
-    }
-
-    .legislation-box {
-        padding: 23px;
-    }
-
-    .law-grid {
-        grid-template-columns: 1fr;
-    }
 
     .cta {
-        margin:
-            0 5% 60px;
+        margin: 20px 6% 60px;
 
         padding: 40px 30px;
 
-        display: block;
+        flex-direction: column;
+
+        align-items: flex-start;
     }
 
-    .white-button {
-        margin-top: 25px;
-    }
 
     footer {
-        padding: 25px 7%;
+        flex-direction: column;
 
-        display: block;
+        text-align: center;
+
+        gap: 15px;
     }
 
-    footer p {
-        margin-top: 10px;
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 39px;
     }
+
+
+    .inventory-copy h2 {
+        font-size: 36px;
+    }
+
+
+    .legal-intro h2 {
+        font-size: 35px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+
+    .faq-answer {
+        padding: 23px;
+    }
+
+
+    .legal-highlight {
+        flex-direction: column;
+    }
+
 
     .chat-overlay {
-        padding: 10px;
+        padding: 0;
     }
+
 
     .chat {
         width: 100%;
-
-        height: 85vh;
+        height: 100%;
+        border-radius: 0;
     }
+
+
+    .lawyer-card {
+        padding: 20px;
+        gap: 15px;
+    }
+
+
+    .lawyer-photo {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+    }
+
+
+    .lawyer-photo svg {
+        width: 46px;
+        height: 46px;
+    }
+
+
+    .lawyer-info h3 {
+        font-size: 15px;
+    }
+
+
+    .lawyer-info p {
+        font-size: 12px;
+    }
+
+}
+/* ================= POMBAS ================= */
+
+/* Pomba ao lado de "Herança Digital" */
+.logo-dove {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Pomba grande dentro do círculo */
+.dove {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dove-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Ajuste para não estourar no celular */
+@media (max-width: 768px) {
+
+    .logo-dove {
+        width: 28px;
+        height: 28px;
+    }
+
+    .dove {
+        width: 120px;
+        height: 120px;
+    }
+
+    .dove-img {
+        width: 95px;
+        height: 95px;
+    }
+
 }
